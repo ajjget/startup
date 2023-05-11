@@ -27,6 +27,11 @@ This is how Whack-A-Plaque will look upon completion.
 - Links -- All of the pages are accessible from one another
 - Textual Content -- All of the textual content is input, and there is no 3rd party service required (as this is mentioned nowhere except this assignment and I'm not terribly sure what it means)
 - Application images -- 
+![Screenshot (206)](https://github.com/ajjget/startup/assets/112976867/45fd40da-28d2-4f8b-93fb-e58fa74a0c53)
+![Screenshot (207)](https://github.com/ajjget/startup/assets/112976867/bd152e4e-9668-4d20-b644-e3a18288e3e3)
+![Screenshot (208)](https://github.com/ajjget/startup/assets/112976867/fc3e5f34-9bda-462c-9647-dc67af205f80)
+![Screenshot (209)](https://github.com/ajjget/startup/assets/112976867/0f997146-7bef-4661-af76-20f876c9bcfe)
+
 - Login -- Placeholder included on home page
 - Database data placeholder -- Shown on "scores" page, where number of games played is displayed
 - WebSocket realtime communicator -- Shown on "play" page, where the score is counted as teeth are brushed
