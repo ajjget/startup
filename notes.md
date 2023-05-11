@@ -15,8 +15,7 @@ git commit
 ta-da!
   
 ##HTML
-<html>
-<pre><body>
+<body>
   <p>Body</p>
   <header>
     <p>Header - <span>Span</span></p>
@@ -59,8 +58,7 @@ ta-da!
   <footer>
     <div>Footer - <span>Span</span></div>
   </footer>
-</body><code>
-</html>  
+</body>
  will create:
   
 ![image](https://github.com/ajjget/startup/assets/112976867/cc44e9ab-201d-47fe-8dbf-297368955090)
