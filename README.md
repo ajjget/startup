@@ -21,3 +21,12 @@ This is how Whack-A-Plaque will look midgame.
 
 This is how Whack-A-Plaque will look upon completion.
 ![Screenshot (204)](https://user-images.githubusercontent.com/112976867/236990844-57266978-339e-4033-aabe-5d91cf14d9cf.png)
+
+## HTML Deliverable
+- HTML pages -- Four HTML pages to accomodate logging in, playing, showing previous plays, and information
+- Links -- All of the pages are accessible from one another
+- Textual Content -- All of the textual content is input, and there is no 3rd party service required (as this is mentioned nowhere except this assignment and I'm not terribly sure what it means)
+- Application images -- 
+- Login -- Placeholder included on home page
+- Database data placeholder -- Shown on "scores" page, where number of games played is displayed
+- WebSocket realtime communicator -- Shown on "play" page, where the score is counted as teeth are brushed
