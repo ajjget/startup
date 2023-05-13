@@ -66,3 +66,77 @@ ta-da!
   to add links do the following: <a href="https://github.com/ajjget/startup">a mediocre GitHub repository</a>
   to add pictures do the following: <img src="image url" width="225" height="225" />
   to bold things in headers do the following: <h1>Header</h1>
+  
+  
+  CSS for this page:
+  ![image](https://github.com/ajjget/startup/assets/112976867/28d4c9c0-0046-4f19-a8cd-acf0b2e1dfec)
+
+  * {
+  font-family: sans-serif;
+  color: white;
+}
+
+body {
+  background-color: #000000;
+}
+
+header {
+  background-color: #3d3b3a;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+}
+
+h1 {
+  color: #a3d4d6;
+  border-bottom: solid white thin;
+}
+
+section {
+  background-color: #666666;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+}
+
+h2 {
+  font-weight: 100;
+}
+
+li {
+  list-style: square;
+}
+
+#table-data {
+  background-color: #c4c4c4;
+  width: 300px;
+}
+
+td,
+th {
+  color: black;
+  text-align: center;
+  border: black solid thin;
+  padding: 1em;
+}
+
+footer {
+  font-style: italic;
+  font-size: 1.5em;
+  text-align: end;
+  padding: 0 1em;
+}
+
+.fly-in {
+  animation: fly-from-left 1s ease-out;
+}
+
+@keyframes fly-from-left {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: trasnlateX(0%);
+  }
+}
+
