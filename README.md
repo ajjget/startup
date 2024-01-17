@@ -14,6 +14,10 @@ CSS will be used to make the game look pretty. I will use it to design the teeth
 
 JavaScript will be used to make the game work. It will log points and control when and where the teeth pop up. It will keep track of when the game ends. It will make the toothbrush follow the cursor.
 
+Trivia API will be used to generate tooth-related trivia. The free version allows me to generate 10 facts a day, so the page will rotate through 10 different facts every day.
+
+Websockets will send a message to all players when an increment of 1000 teeth have been cleaned.
+
 ## Rough Sketches
 
 This is how Whack-A-Plaque will look midgame.
