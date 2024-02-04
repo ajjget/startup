@@ -38,4 +38,5 @@ This is how Whack-A-Plaque will look upon completion.
 
 - Login -- Placeholder included on home page
 - Database data placeholder -- Shown on "scores" page, where number of games played is displayed
-- WebSocket realtime communicator -- Shown on "play" page, where the score is counted as teeth are brushed
+- WebSocket realtime communicator -- Shown on all pages, where a notification will be broadcast to all players at the top of the page
+- API placeholder -- There will be a tooth fact API that displays random facts at the top of the page
