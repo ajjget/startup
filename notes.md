@@ -140,3 +140,13 @@ footer {
   }
 }
 
+
+JavaScript
+const f = y => y++;
+f = function name
+y = parameters (sometimes in parentheses for multiple parameters)
+y++ = if there are no other lines in {}, then that just means that you return y++
+
+function f (parameters) {
+  return y++;
+}
