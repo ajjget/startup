@@ -15,6 +15,10 @@ git commit
 ta-da!
   
 ##HTML
+<p id="myID" class="myClass"> to set ID of an element
+
+use <ul> or <ol> to make unordered or ordered list, every list element has <li> before it
+  
 <body>
   <p>Body</p>
   <header>
@@ -141,6 +145,14 @@ footer {
 }
 
 
+CSS
+Box model, from out going in
+margin, border, padding, content
+reference a class using .className -- not unique, can be applied to multiple things
+ID's are only unique to one element
+reference ID using #IDName
+
+
 JavaScript
 const f = y => y++;
 f = function name
@@ -150,3 +162,42 @@ y++ = if there are no other lines in {}, then that just means that you return y+
 function f (parameters) {
   return y++;
 }
+
+Everything in slashes is the regex, the i afterwards means case insensitive, so cat and fish
+![image](https://github.com/ajjget/startup/assets/112976867/3d9dedb2-ceec-490c-966b-e6d92821712e)
+
+answer is cow:rat:fish
+![image](https://images-cdn.kahoot.it/bb5e65e6-8855-4376-9a14-a5a40ba123a9?auto=webp)
+
+answer is ['a1', 'a2', 'a3']
+![image](https://images-cdn.kahoot.it/70dfbff7-5d45-428a-bb6e-af9fe9201a0c?auto=webp)
+
+querySelector will return the first instance of the specified element/class/ID
+querySelectAll adds it to ALL instances of element/class/ID
+you want to give something an ID if you don't want it to do the first element of something
+when you mouse over the first paragraph (p) element, then some javascript will be executed. in this case, it's console.log (which prints out p's textContent), but it could be a function or something
+![image](https://images-cdn.kahoot.it/8c549ad0-e536-4b3b-b9b9-f4927d1e2f9b?auto=webp)
+const el = document.querySelector("h1")
+el.textContent = "new text content"
+sets text for el
+
+how to include javascript in html
+<script>1+1</script>
+<script src='main.js'/> (normal way)
+<div onclick='1+1' /> (event listener)
+
+create JS obejcts using
+  { n:1 }
+
+JSON
+  {"x":3}
+
+to deploy script:
+sudo deploy.sh
+to make it executable:
+chmod +x deploy.sh
+
+c260.cs.byu.edu
+edu is top-level domain
+byu is host domain
+c260.cs is subdomain
