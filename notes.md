@@ -186,6 +186,13 @@ how to include javascript in html
 <script src='main.js'/> (normal way)
 <div onclick='1+1' /> (event listener)
 
+Promise functions:
+run when the name, in this case p, is called. runs as background task concurrently, and code continues on. so burgers prints first, then fries while the promise waits for 10 seconds in setTimeout(), then taco. we can either accept or reject the promise. we accept it with resolve(true), so down in call to p, result is accepted for shake. if it was rejected, then the error would have been caught. then, finally, noodles is printed. so, the following is printed:
+burger, fries, taco, shake, noodles
+![image](https://github.com/ajjget/startup/assets/112976867/f0985605-46a8-4025-9e57-d82dce03ad5c)
+
+await and async go together
+
 create JS obejcts using
   { n:1 }
 
@@ -201,3 +208,7 @@ c260.cs.byu.edu
 edu is top-level domain
 byu is host domain
 c260.cs is subdomain
+
+DNS records:
+domain name service -- when you are requesting a domain, it converts the domain name into the IP address that you need to access
+CNAME -> canonical name maps to an alias name, so you can have more than one name that maps to same ip
