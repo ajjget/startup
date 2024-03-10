@@ -1,0 +1,88 @@
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+  }
+  
+  menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+  }
+  
+  li {
+    margin: auto;
+  }
+  
+  a:link { 
+    text-decoration: none; 
+  } 
+  a:visited { 
+    text-decoration: none; 
+  } 
+  a:hover { 
+    text-decoration: none; 
+  } 
+  a:active { 
+    text-decoration: none; 
+  }
+
+  main {
+    padding-block: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  
+  .page-options {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .purple_text {
+    text-align: center;
+    color: #99205d;
+  }
+  
+  .general_text {
+    text-align: center;
+    color: white;
+  }
+  
+  .picture-box {
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 14%;
+  }
+  
+  .info {
+    text-align: center;
+    color: white;
+  }
+  
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .name {
+    color: white;
+  }
+  
+  .informational_links {
+    color: #99205d
+  }
+
+  .tooth_button {
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  
+  * {
+    background-color: #d78dd9;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
