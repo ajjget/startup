@@ -58,4 +58,8 @@ I wanted the website to be reminiscent of the inside of a mouth, as it is a game
 - Application images have been centered (and in some places given padding) to fit the theme of the site.
 
 ### Application Images
+![css1](https://github.com/ajjget/startup/assets/112976867/b8cb8b83-3cb0-4642-b603-fc43f1971b83)
+![css2](https://github.com/ajjget/startup/assets/112976867/cc525436-9d14-482c-893e-3ef53197ddb1)
+![css3](https://github.com/ajjget/startup/assets/112976867/1cf51aee-43cd-4c93-b2c6-2da6ee39a58f)
+![css4](https://github.com/ajjget/startup/assets/112976867/86df6582-5c09-4a14-810f-60b1bd80d0a9)
 
