@@ -1,0 +1,74 @@
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+  }
+  
+  li {
+    margin: auto;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  a:link { 
+    text-decoration: none; 
+  } 
+  a:visited { 
+    text-decoration: none; 
+  } 
+  a:hover { 
+    text-decoration: none; 
+  } 
+  a:active { 
+    text-decoration: none; 
+  }
+  
+  .page-options {
+    color: white;
+    text-decorations: none;
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  
+  .temp {
+    text-align: center;
+    color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  .picture-box {
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 14%;
+  }
+  
+  .info {
+    text-align: center;
+    color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  .name {
+    color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  .informational_links {
+    color: #99205d
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  
+  * {
+    background-color: #d78dd9;
+  }
+  
