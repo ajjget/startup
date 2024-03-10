@@ -10,16 +10,16 @@
     <!-- Use header, main, and footer elements to give semantic structure -->
     <header>
       <h1>Whack-A-Plaque<sup></sup></h1>
-      <div>Spot for API fun facts</div>
-      <div>Spot for WebSocket notifications</div>
+      <div class=general_text>Spot for API fun facts</div>
+      <div class=general_text>Spot for WebSocket notifications</div>
       <!-- Navigation elements -->
       <nav>
         <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
         <menu>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="play.html">Play</a></li>
-          <li><a href="scores.html">Scores</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a class=page-options href="index.html">Home</a></li>
+          <li><a class=page-options  href="play.html">Play</a></li>
+          <li><a class=page-options  href="scores.html">Scores</a></li>
+          <li><a class=page-options  href="about.html">About</a></li>
         </menu>
       </nav>
 
@@ -29,7 +29,7 @@
 
     <main>
       <div>
-        <p>These teeth are covered in plaque and need to be brushed! 
+        <p class=purple_text>These teeth are covered in plaque and need to be brushed! 
         Click on the teeth to brush them with the toothbrush. Adults typically have 32 teeth. 
         Once all 32 teeth are brushed, the game is over and you win the joyous and rewarding prize of clean teeth!</p>
       </div>
@@ -37,18 +37,18 @@
       <!-- More formatting with old style HTML -->
       <br />
 
-      <div>
-        <label for="count">Teeth brushed</label>
+      <div class=general_text>
+        <label class=general_text for="count">Teeth brushed</label>
         <input type="text" id="count" value="--" readonly />
       </div>
 
       <br />
 
-      <div>
-        <button>Start</button>
+      <div class=general_text>
+        <button class=general_text >Start</button>
       </div>
-      <div>
-        <button>Reset</button>
+      <div class=general_text >
+        <button class=general_text >Reset</button>
       </div>
 
       <br />
@@ -57,69 +57,69 @@
         <table>
           <tr>
             <td>
-              <button>
+              <button class=tooth_button>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </button>
             </td>
             <td>
-              <button>
+              <button class=tooth_button>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </button>
             </td>
             <td>
-              <button>
+              <button class=tooth_button>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
-                </svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
-                </svg>
-              </button>
-            </td>
-            <td>
-              <button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </button>
             </td>
           </tr>
           <tr>
             <td>
-              <button>
+              <button class=tooth_button>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </button>
             </td>
             <td>
-              <button>
+              <button class=tooth_button>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </button>
             </td>
             <td>
-              <button>
+              <button class=tooth_button>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" />
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button class=tooth_button>
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </button>
+            </td>
+            <td>
+              <button class=tooth_button>
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </button>
+            </td>
+            <td>
+              <button class=tooth_button>
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </button>
             </td>
@@ -130,9 +130,9 @@
 
     <footer>
       <hr />
-      <span class="text-reset">Andrea Gettys</span>
+      <span class="name">Andrea Gettys</span>
       <br />
-      <a href="https://github.com/ajjget/startup">GitHub</a>
+      <a class="informational_links" href="https://github.com/ajjget/startup">GitHub</a>
     </footer>
   </body>
 </html>
