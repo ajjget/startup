@@ -40,3 +40,22 @@ This is how Whack-A-Plaque will look upon completion.
 - Database data placeholder -- Shown on "scores" page, where number of games played is displayed
 - WebSocket realtime communicator -- Shown on all pages, where a notification will be broadcast to all players at the top of the page
 - API placeholder -- There will be a tooth fact API that displays random facts at the top of the page
+
+
+
+## CSS Deliverable
+
+### Overview
+
+I wanted the website to be reminiscent of the inside of a mouth, as it is a game about brushing teeth. Though pink websites are generally horrible, the pink represents the gums in our mouths and is a fun color for a website aimed at children. Everything is center-aligned because it looks nice.
+
+### Properly Styled CSS
+- Header, footer, and main content body were all styled to use themed text colors and fonts. 
+- Navigation elements are found at the top of the page in the header. They have been styled to mimic other popular webpages, by being centered and spaced apart evenly.
+- The navigational elements in the header use flex boxes, so they can respond to window resizing.
+- Application elements, such as the input text boxes and game buttons, have been restyled to fit the theme of the game and be centered.
+- Application text content has been restyled and centered to fit the theme of the website.
+- Application images have been centered (and in some places given padding) to fit the theme of the site.
+
+### Application Images
+
