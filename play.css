@@ -80,6 +80,11 @@ h1 {
     border: none;
     background: none;
   }
+
+  footer {
+    padding-block: 20px;
+    text-align: center;
+  }
   
   * {
     background-color: #d78dd9;

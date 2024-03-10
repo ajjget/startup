@@ -29,6 +29,12 @@ h1 {
     text-decoration: none; 
   }
   
+  main {
+    padding-block: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
   .page-options {
     color: white;
     font-size: 20px;
@@ -63,6 +69,11 @@ h1 {
   
   .informational_links {
     color: #99205d
+  }
+
+  footer {
+    padding-block: 20px;
+    text-align: center;
   }
   
   * {
