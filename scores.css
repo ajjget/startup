@@ -68,7 +68,7 @@ h1 {
   }
   
   .informational_links {
-    color: #99205d
+    color: #6e1e64;
   }
 
   footer {
@@ -77,7 +77,7 @@ h1 {
   }
   
   * {
-    background-color: #d78dd9;
+    background-color: #a965ab;
     font-family: "Lucida Console", "Courier New", monospace;
   }
   
