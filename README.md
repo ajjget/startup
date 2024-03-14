@@ -50,12 +50,16 @@ This is how Whack-A-Plaque will look upon completion.
 I wanted the website to be reminiscent of the inside of a mouth, as it is a game about brushing teeth. Though pink websites are generally horrible, the pink represents the gums in our mouths and is a fun color for a website aimed at children. Everything is center-aligned because it looks nice.
 
 ### Properly Styled CSS
-- Header, footer, and main content body were all styled to use themed text colors and fonts. 
-- Navigation elements are found at the top of the page in the header. They have been styled to mimic other popular webpages, by being centered and spaced apart evenly.
-- The navigational elements in the header use flex boxes, so they can respond to window resizing.
-- Application elements, such as the input text boxes and game buttons, have been restyled to fit the theme of the game and be centered.
-- Application text content has been restyled and centered to fit the theme of the website.
-- Application images have been centered (and in some places given padding) to fit the theme of the site.
+- Header, footer, and main content body -- styled to use themed text colors and fonts. 
+- Navigation elements -- styled to mimic other popular webpages, by being centered, spaced apart evenly, and having no underlines.
+- Responsive to window resizing -- the navigational elements in the header use flex boxes, so they can respond to window resizing. website can be shifted larger and smaller while maintaining functionality.
+- Application elements -- whitespace utilized to break up elements. all elements contrast against the background and are readable.
+- Application text content -- consistent fonts.
+- Application images -- centered.
 
 ### Application Images
+![css1](https://github.com/ajjget/startup/assets/112976867/b8cb8b83-3cb0-4642-b603-fc43f1971b83)
+![css2](https://github.com/ajjget/startup/assets/112976867/cc525436-9d14-482c-893e-3ef53197ddb1)
+![css3](https://github.com/ajjget/startup/assets/112976867/1cf51aee-43cd-4c93-b2c6-2da6ee39a58f)
+![css4](https://github.com/ajjget/startup/assets/112976867/86df6582-5c09-4a14-810f-60b1bd80d0a9)
 
