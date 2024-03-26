@@ -1,84 +1,83 @@
 h1 {
-    text-align: center;
-    color: white;
-    font-size: 40px;
-    padding-top: 10px;
-  }
-  
-  menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-    list-style-type: none;
-  }
-  
-  li {
-    margin: auto;
-  }
-  
-  a:link { 
-    text-decoration: none; 
-  } 
-  a:visited { 
-    text-decoration: none; 
-  } 
-  a:hover { 
-    text-decoration: none; 
-  } 
-  a:active { 
-    text-decoration: none; 
-  }
-  
-  main {
-    padding-block: 20px;
-    padding-left: 70px;
-    padding-right: 70px;
-  }
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  padding-top: 10px;
+}
 
-  .page-options {
-    color: white;
-    font-size: 20px;
-  }
-  
-  
-  .general_text {
-    text-align: center;
-    color: white;
-  }
-  
-  .picture-box {
-    margin: auto;
-    margin-left: auto;
-    margin-right: auto;
-    width: 14%;
-  }
-  
-  .info {
-    text-align: center;
-    color: white;
-  }
-  
-  table {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .name {
-    color: white;
-  }
-  
-  .informational_links {
-    color: #420e3c;
-  }
+menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  list-style-type: none;
+}
 
-  footer {
-    padding-block: 20px;
-    text-align: center;
-  }
-  
-  * {
-    background-color: #a965ab;
-    font-family: "Lucida Console", "Courier New", monospace;
-  }
-  
+li {
+  margin: auto;
+}
+
+a:link { 
+  text-decoration: none; 
+} 
+a:visited { 
+  text-decoration: none; 
+} 
+a:hover { 
+  text-decoration: none; 
+} 
+a:active { 
+  text-decoration: none; 
+}
+
+main {
+  padding-block: 20px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.page-options {
+  color: white;
+  font-size: 20px;
+}
+
+
+.general_text {
+  text-align: center;
+  color: white;
+}
+
+.picture-box {
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 14%;
+}
+
+.info {
+  text-align: center;
+  color: white;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.name {
+  color: white;
+}
+
+.informational_links {
+  color: #420e3c;
+}
+
+footer {
+  padding-block: 20px;
+  text-align: center;
+}
+
+* {
+  background-color: #a965ab;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
