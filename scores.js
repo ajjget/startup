@@ -1,15 +1,18 @@
 function loadScores() {
-    const scoreText = localStorage.getItem('score');
-    if (scoresText) {
-      winCount = JSON.parse(scoresText);
-    }
-    else {
+  localStorage.setItem('score', 11);
+  
+  const scoreText = localStorage.getItem('score');
+
+    if (!scoreText) {
       winCount = '0';
     }
-    
-  
-    const totalWins = document.querySelector('#totalWins');
-  
-    totalWins = 11;
-    loadScores();
-  }
+    else {
+      winCount = scoreText;
+    }
+
+  const totalWins = document.querySelector('#totalWins');
+
+  totalWins.textContent = winCount;
+}
+
+loadScores();
