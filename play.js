@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const resetButton = document.getElementById('reset_button');
     const scoreDisplay = document.getElementById('score_display');
     const teeth = document.querySelectorAll('.tooth_button');
+
     let count = 0;
     let activeTeeth = 0;
 
@@ -15,6 +16,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const time = randomTime(500, 1500);
         const tooth = getRandomTooth(teeth);
         tooth.classList.add('up');
+        let dirty_tooth_img = document.createElement('dirty_tooth_img');
+        dirty_tooth_image.src = "https://cdn-icons-png.freepik.com/512/2140/2140042.png"
+        tooth.appendChild(dirty_tooth_img);
         setTimeout(() => {
             tooth.classList.remove('up');
         }, time);
@@ -22,12 +26,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function playGame() {
         startButton.disabled = true;
+        console.log("in play game");
 
         while (count <= 32) {
+            console.log("showing tooth...");
             setTimeout(() => {
                 showTooth();
             }, 1500);   // maybe change 1500 in future to be random between 500-1000
         }
+
+        endGame();
+    }
+
+    function whack() {
+
     }
 
     function resetGame() {
@@ -37,4 +49,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         startButton.disabled = false;
     }
 
+    function endGame() {
+
+    }
+
+    startButton.addEventListener('click', playGame());
+    tooth.forEach(tooth => tooth.addEventListener('click', whack()));
 });
