@@ -1,58 +1,198 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const startButton = document.getElementById('start_button');
-    const resetButton = document.getElementById('reset_button');
-    const scoreDisplay = document.getElementById('score_display');
-    const teeth = document.querySelectorAll('.tooth_button');
+let buttons =  new Map();
+let teethPoppedUp = [];
+let score = 0;
+  
+  class Button {
+    el;
+    id;
 
-    let count = 0;
-    let activeTeeth = 0;
-
-    function getRandomTooth(teeth) {
-        const i = Math.floor(Math.random() * teeth.length);
-        return teeth[i];
+    constructor(id, el) {
+      this.id = id;
+      this.el = el;
     }
 
-    function showTooth() {
-        const time = randomTime(500, 1500);
-        const tooth = getRandomTooth(teeth);
-        tooth.classList.add('up');
-        let dirty_tooth_img = document.createElement('dirty_tooth_img');
-        dirty_tooth_image.src = "https://cdn-icons-png.freepik.com/512/2140/2140042.png"
-        tooth.appendChild(dirty_tooth_img);
-        setTimeout(() => {
-            tooth.classList.remove('up');
-        }, time);
+  
+    popUpTooth() {
+      console.log("in pop up tooth");
+      this.el.innerHTML = '<img src="gross_tooth.png">';
+      //this.el.css("red");
     }
-
-    function playGame() {
-        startButton.disabled = true;
-        console.log("in play game");
-
-        while (count <= 32) {
-            console.log("showing tooth...");
-            setTimeout(() => {
-                showTooth();
-            }, 1500);   // maybe change 1500 in future to be random between 500-1000
+  
+    async clickTooth() {
+      console.log("in click tooth");
+      // check if the clicked tooth is set as 1 in the array, then put the tooth down
+      // otherwise ignore
+    }
+  }
+  
+  class Game {
+    allowPlayer;
+  
+    constructor() {
+      this.allowPlayer = false;
+  
+      document.querySelectorAll('.tooth_button').forEach((el, i) => {
+        if (i < 9) {
+          this.buttons.set(i, new Button(btnDescriptions[i], el));
         }
-
-        endGame();
+      });
+  
+      // const playerNameEl = document.querySelector('.player-name');
+      // playerNameEl.textContent = this.getPlayerName();
     }
 
-    function whack() {
-
+    async clickPlay() {
+      console.log("in play");
+      if (this.allowPlayer == true) {
+        this.allowPlayer = false;
+        this.addButton();
+        this.whackAPlaque();
+      }
     }
 
-    function resetGame() {
-        scoreDisplay.value = 0;
-        count = 0;
-        activeTeeth = 0;
-        startButton.disabled = false;
+    async whackAPlaque() {
+      while (score < 32) {
+        button = this.getRandomButton();
+        teethPoppedUp[button.id] = 1;
+        this.paintTeeth();
+        this.delay();
+        teethPoppedUp[button.id] = 0;
+      }
     }
 
-    function endGame() {
-
+    paintTeeth() {
+      for (i = 0; i < 9; i++) {
+        if (i == 1) {
+          // paint tooth
+        }
+        else {
+          //unpaint tooth
+        }
+      }
     }
+  
+    async reset() {
+      console.log("in reset");
+      this.allowPlayer = true;
+      this.sequence = [];
+      this.updateScore('--');
+      // you need to stop the current whackAPlaque loop
+    }
+  
+    getPlayerName() {
+      console.log("in getPlayerName")
+      return localStorage.getItem('userName') ?? 'Mystery player';
+    }
+  
+    updateScore(score) {
+      console.log("in update score");
+      const scoreEl = document.querySelector('#score');
+      scoreEl.textContent = score;
+    }
+  
+    getRandomButton() {
+      console.log("in get random button");
+      let buttons = Array.from(this.buttons.values());
+      return buttons[Math.floor(Math.random() * this.buttons.size)];
+    }
+  }
+  
+  //   saveScore(score) {
+  //     console.log("in save score");
+  //     const userName = this.getPlayerName();
+  //     let scores = [];
+  //     const scoresText = localStorage.getItem('scores');
+  //     if (scoresText) {
+  //       scores = JSON.parse(scoresText);
+  //     }
+  //     scores = this.updateScores(userName, score, scores);
+  
+  //     localStorage.setItem('scores', JSON.stringify(scores));
+  //   }
+  
+  //   updateScores(userName, score, scores) {
+  //     console.log("in update scores");
+  //     const date = new Date().toLocaleDateString();
+  //     const newScore = { name: userName, score: score, date: date };
+  
+  //     let found = false;
+  //     for (const [i, prevScore] of scores.entries()) {
+  //       console.log("in update scores");
+  //       if (score > prevScore.score) {
+  //         scores.splice(i, 0, newScore);
+  //         found = true;
+  //         break;
+  //       }
+  //     }
+  
+  //     if (!found) {
+  //       scores.push(newScore);
+  //     }
+  
+  //     if (scores.length > 10) {
+  //       scores.length = 10;
+  //     }
+  
+  //     return scores;
+  //   }
+  // }
+  
+  const game = new Game();
+  
+  function delay(milliseconds) {
+    console.log("in delay");
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, milliseconds);
+    });
+  }
 
-    startButton.addEventListener('click', playGame());
-    tooth.forEach(tooth => tooth.addEventListener('click', whack()));
-});
+  /*
+  set up buttons
+  
+  While (score < 32) {
+    randomly choose a state to update
+    paint_holes() -> goes through array and puts tooth on hole, takes teeth from 0 holes
+    delay()
+    array = 0
+  }
+
+  onClick() {
+    if (array[i] == 1)
+      score++
+      array[0] = 0
+      paint_holes()
+  }
+
+  */
+  
+  /*
+  TA ADVICE
+  <div>
+    <div class="button" id="bt1" onclick="getButton(0)"\>
+    <div class="button" id="bt2" onclick="getButton(1)"\>
+    <div class="button" id="bt3" onclick="getButton(2)"\>
+  </div>
+
+  js
+
+  let buttons = document.getElementsByClassName("button")
+  // buttons = [bt1, bt2, bt3]
+
+  function getButton (num) {
+    let button = document.getElementById(`bt${num}`);
+  }
+  */
+
+  /*
+  Insert photo
+  - you can do CSS manipulation to hide and show photo
+  class.display: none
+  class.display: block
+  */
+
+  /*
+  Interrupt function while while() is in delay
+
+  */

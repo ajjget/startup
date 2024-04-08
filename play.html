@@ -47,17 +47,17 @@
       <br />
 
       <div class=general_text>
-        <label class=general_text id="score_display" for="count">Teeth brushed</label>
-        <input type="text" id="count" value="--" readonly />
+        <label class=general_text for="count">Teeth brushed</label>
+        <input type="text" id="score" value="--" readonly />
       </div>
 
       <br />
 
       <div class=general_text>
-        <button class=general_text id="start_button">Start</button>
+        <button class=general_text id="start_button" onclick="game.clickPlay()">Start</button>
       </div>
       <div class=general_text id="reset_button">
-        <button class=general_text >Reset</button>
+        <button class=general_text onclick="game.reset()">Reset</button>
       </div>
 
       <br />
@@ -66,71 +66,71 @@
         <table>
           <tr>
             <td>
-              <button class=tooth_button>
+              <div class=tooth_button onclick="game.pressButton(this)">
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
-              </button>
+              </div>
             </td>
             <td>
-              <button class=tooth_button>
+              <div class=tooth_button onclick="game.pressButton(this)">
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
-              </button>
+              </div>
             </td>
             <td>
-              <button class=tooth_button>
+              <div class=tooth_button onclick="game.pressButton(this)">
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button class=tooth_button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
-                </svg>
-              </button>
-            </td>
-            <td>
-              <button class=tooth_button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
-                </svg>
-              </button>
-            </td>
-            <td>
-              <button class=tooth_button>
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
-                </svg>
-              </button>
+              </div>
             </td>
           </tr>
           <tr>
             <td>
-              <button class=tooth_button>
+              <div class=tooth_button onclick="game.pressButton(this)">
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
-              </button>
+              </div>
             </td>
             <td>
-              <button class=tooth_button>
+              <div class=tooth_button onclick="game.pressButton(this)">
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
-              </button>
+              </div>
             </td>
             <td>
-              <button class=tooth_button>
+              <div class=tooth_button onclick="game.pressButton(this)">
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
-              </button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class=tooth_button onclick="game.pressButton(this)">
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </div>
+            </td>
+            <td>
+              <div class=tooth_button onclick="game.pressButton(this)">
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </div>
+            </td>
+            <td>
+              <div class=tooth_button onclick="game.pressButton(this)">
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </div>
             </td>
           </tr>
         </table>
