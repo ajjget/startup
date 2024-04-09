@@ -3,8 +3,11 @@ let teethPoppedUp = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let score = 0;
 let gameInProgress = false;
 
+function loadUsername() {
+  
+}
+
 function clickTooth(toothID) {
-  console.log("in click tooth");
     if (teethPoppedUp[toothID] == 1) {
         score++;
         teethPoppedUp[toothID] = 0;
@@ -14,7 +17,6 @@ function clickTooth(toothID) {
 }
 
 function clickPlay() {
-  console.log("click play");
     if (gameInProgress == false) {
         updateScore(0);
         gameInProgress = true;
@@ -23,9 +25,7 @@ function clickPlay() {
 }
 
 async function whackAPlaque() {
-  console.log("in whack a plaque");
     while (score < 20 && gameInProgress == true) {
-        console.log("in loop");
         toothID = await getRandomNumber();
         teethPoppedUp[toothID] = 1;
         paintTooth(toothID);
@@ -36,20 +36,15 @@ async function whackAPlaque() {
         paintTooth(toothID);
     }
     if (score >= 20) {
-        console.log("yay you win!");
         finishGame();
-        
-        //add to database
     }
 }
 
 async function getRandomNumber() {
-  console.log("get random number");
     return Math.floor(Math.random() * 9);
 }
 
 function paintTooth(toothID) {
-  console.log("in paint tooth");
     if (teethPoppedUp[toothID] == 1) {
         document.getElementById(`t${toothID}`).style.display="block";
     }
@@ -59,7 +54,6 @@ function paintTooth(toothID) {
 }
 
 async function clickReset() {
-  console.log("in click reset");
   score = 0;
   gameInProgress = false;
   updateScore('Please wait for a second, then hit "play" to play again.');
@@ -80,13 +74,24 @@ async function clickReset() {
 }
 
 function updateScore(scoreMessage) {
-    console.log("update score");
     const scoreEl = document.querySelector('#score');
     scoreEl.value = scoreMessage;
 }
 
+function saveScore() {
+  //const userName = this.getPlayerName();
+  let scores = localStorage.getItem('scores');
+  if (scores) {
+    scores++;
+  }
+  else {
+    scores = 1;
+  }
+
+  localStorage.setItem('scores', JSON.stringify(scores));
+}
+
 async function delay() {
-    console.log("delay");
     return new Promise((resolve) => {
         setTimeout(() => {
           resolve(true);
@@ -96,12 +101,13 @@ async function delay() {
 
 function finishGame() {
     updateScore("You win! Please click \"Reset\" to play again.");
-
+    saveScore();
     let shinyTeeth = document.getElementsByClassName("shiny_tooth");
     for (i = 0; i < shinyTeeth.length; i++) {
       shinyTeeth[i].style.display="block";
     }
 }
+
 
 
 /*
