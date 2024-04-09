@@ -55,14 +55,13 @@ I wanted the website to be reminiscent of the inside of a mouth, as it is a game
 
 ## JavaScript Deliverable
 
-### Overview:
+### Overview
 
 I completely implemented the Whack-a-Plaque game logic in the JavaScript. Additionally, username and score data is stored in the page. When you navigate, you will still see your username at the top, and your score will be the same on the score page. Additionally, I added placeholders that mimic what API's and websockets will do.
 
-### Requirements:
+### Functionality
 
-1. Simon was successfully cloned
-2. - The whack-a-plaque game logic was completely implemented and is entirely playable. Random teeth will pop up and add to your score when they are clicked. A wonderful end-game sequence shows up to signify a win. Play and reset buttons are fully functional.
+   - The whack-a-plaque game logic was completely implemented and is entirely playable. Random teeth will pop up and add to your score when they are clicked. A wonderful end-game sequence shows up to signify a win. Play and reset buttons are fully functional.
    - Username and score data is stored in the JS database, which will later be replaced.
    - Username is stored and displayed right below "Whack-A-Plaque" on the top of the screen.
    - Database data, like username and scores, are stored and injected into the DOM.
