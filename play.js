@@ -1,154 +1,110 @@
-let buttons =  new Map();
-let teethPoppedUp = [];
+let buttons = document.getElementsByClassName("tooth_button");
+let teethPoppedUp = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let score = 0;
-  
-  class Button {
-    el;
-    id;
+let gameInProgress = false;
 
-    constructor(id, el) {
-      this.id = id;
-      this.el = el;
+function clickTooth(toothID) {
+  console.log("in click tooth");
+    if (teethPoppedUp[toothID] == 1) {
+        score++;
+        teethPoppedUp[toothID] = 0;
+        paintTooth(toothID);
+        updateScore(score);
     }
+}
 
-  
-    popUpTooth() {
-      console.log("in pop up tooth");
-      this.el.innerHTML = '<img src="gross_tooth.png">';
-      //this.el.css("red");
-    }
-  
-    async clickTooth() {
-      console.log("in click tooth");
-      // check if the clicked tooth is set as 1 in the array, then put the tooth down
-      // otherwise ignore
-    }
-  }
-  
-  class Game {
-    allowPlayer;
-  
-    constructor() {
-      this.allowPlayer = false;
-  
-      document.querySelectorAll('.tooth_button').forEach((el, i) => {
-        if (i < 9) {
-          this.buttons.set(i, new Button(btnDescriptions[i], el));
-        }
-      });
-  
-      // const playerNameEl = document.querySelector('.player-name');
-      // playerNameEl.textContent = this.getPlayerName();
-    }
-
-    async clickPlay() {
-      console.log("in play");
-      if (this.allowPlayer == true) {
-        this.allowPlayer = false;
-        this.addButton();
+function clickPlay() {
+  console.log("click play");
+    if (gameInProgress == false) {
+        updateScore(0);
+        gameInProgress = true;
         this.whackAPlaque();
-      }
+    }
+}
+
+async function whackAPlaque() {
+  console.log("in whack a plaque");
+    while (score < 20 && gameInProgress == true) {
+        console.log("in loop");
+        toothID = await getRandomNumber();
+        teethPoppedUp[toothID] = 1;
+        paintTooth(toothID);
+        
+        await delay();
+
+        teethPoppedUp[toothID] = 0;
+        paintTooth(toothID);
+    }
+    if (score >= 20) {
+        console.log("yay you win!");
+        finishGame();
+        
+        //add to database
+    }
+}
+
+async function getRandomNumber() {
+  console.log("get random number");
+    return Math.floor(Math.random() * 9);
+}
+
+function paintTooth(toothID) {
+  console.log("in paint tooth");
+    if (teethPoppedUp[toothID] == 1) {
+        document.getElementById(`t${toothID}`).style.display="block";
+    }
+    else {
+        document.getElementById(`t${toothID}`).style.display="none";
+    }
+}
+
+async function clickReset() {
+  console.log("in click reset");
+  score = 0;
+  gameInProgress = false;
+  updateScore('Please wait for a second, then hit "play" to play again.');
+
+  let shinyTeeth = document.getElementsByClassName("shiny_tooth");
+    for (i = 0; i < shinyTeeth.length; i++) {
+      shinyTeeth[i].style.display="none";
     }
 
-    async whackAPlaque() {
-      while (score < 32) {
-        button = this.getRandomButton();
-        teethPoppedUp[button.id] = 1;
-        this.paintTeeth();
-        this.delay();
-        teethPoppedUp[button.id] = 0;
-      }
-    }
-
-    paintTeeth() {
-      for (i = 0; i < 9; i++) {
-        if (i == 1) {
-          // paint tooth
-        }
-        else {
-          //unpaint tooth
-        }
-      }
-    }
-  
-    async reset() {
-      console.log("in reset");
-      this.allowPlayer = true;
-      this.sequence = [];
-      this.updateScore('--');
-      // you need to stop the current whackAPlaque loop
-    }
-  
-    getPlayerName() {
-      console.log("in getPlayerName")
-      return localStorage.getItem('userName') ?? 'Mystery player';
-    }
-  
-    updateScore(score) {
-      console.log("in update score");
-      const scoreEl = document.querySelector('#score');
-      scoreEl.textContent = score;
-    }
-  
-    getRandomButton() {
-      console.log("in get random button");
-      let buttons = Array.from(this.buttons.values());
-      return buttons[Math.floor(Math.random() * this.buttons.size)];
+  for (i = 0; i < 9; i++) {
+    if (teethPoppedUp[i] == 1) {
+      teethPoppedUp[i] = 0;
+      paintTooth(i);
     }
   }
-  
-  //   saveScore(score) {
-  //     console.log("in save score");
-  //     const userName = this.getPlayerName();
-  //     let scores = [];
-  //     const scoresText = localStorage.getItem('scores');
-  //     if (scoresText) {
-  //       scores = JSON.parse(scoresText);
-  //     }
-  //     scores = this.updateScores(userName, score, scores);
-  
-  //     localStorage.setItem('scores', JSON.stringify(scores));
-  //   }
-  
-  //   updateScores(userName, score, scores) {
-  //     console.log("in update scores");
-  //     const date = new Date().toLocaleDateString();
-  //     const newScore = { name: userName, score: score, date: date };
-  
-  //     let found = false;
-  //     for (const [i, prevScore] of scores.entries()) {
-  //       console.log("in update scores");
-  //       if (score > prevScore.score) {
-  //         scores.splice(i, 0, newScore);
-  //         found = true;
-  //         break;
-  //       }
-  //     }
-  
-  //     if (!found) {
-  //       scores.push(newScore);
-  //     }
-  
-  //     if (scores.length > 10) {
-  //       scores.length = 10;
-  //     }
-  
-  //     return scores;
-  //   }
-  // }
-  
-  const game = new Game();
-  
-  function delay(milliseconds) {
-    console.log("in delay");
+
+  await delay();
+}
+
+function updateScore(scoreMessage) {
+    console.log("update score");
+    const scoreEl = document.querySelector('#score');
+    scoreEl.value = scoreMessage;
+}
+
+async function delay() {
+    console.log("delay");
     return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(true);
-      }, milliseconds);
+        setTimeout(() => {
+          resolve(true);
+        }, 1000);
     });
-  }
+}
 
-  /*
+function finishGame() {
+    updateScore("You win! Please click \"Reset\" to play again.");
+
+    let shinyTeeth = document.getElementsByClassName("shiny_tooth");
+    for (i = 0; i < shinyTeeth.length; i++) {
+      shinyTeeth[i].style.display="block";
+    }
+}
+
+
+/*
   set up buttons
   
   While (score < 32) {
@@ -194,5 +150,5 @@ let score = 0;
 
   /*
   Interrupt function while while() is in delay
-
+  lolz don't need to cuz im not fancy and this game gonn suck
   */

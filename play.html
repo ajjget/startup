@@ -39,7 +39,7 @@
     <main>
       <div>
         <p class=purple_text>These teeth are covered in plaque and need to be brushed! 
-        Click on the teeth to brush them with the toothbrush. Adults typically have 32 teeth. 
+        Click on the teeth to brush them with the toothbrush. Adults typically have 20 teeth. 
         Once all 32 teeth are brushed, the game is over and you win the joyous and rewarding prize of clean teeth!</p>
       </div>
 
@@ -48,16 +48,16 @@
 
       <div class=general_text>
         <label class=general_text for="count">Teeth brushed</label>
-        <input type="text" id="score" value="--" readonly />
+        <input style="width: 550px;" type="text" id="score" value="--" readonly />
       </div>
 
       <br />
 
       <div class=general_text>
-        <button class=general_text id="start_button" onclick="game.clickPlay()">Start</button>
+        <button class=general_text id="start_button" onclick="clickPlay()">Start</button>
       </div>
       <div class=general_text id="reset_button">
-        <button class=general_text onclick="game.reset()">Reset</button>
+        <button class=general_text onclick="clickReset()">Reset</button>
       </div>
 
       <br />
@@ -66,44 +66,27 @@
         <table>
           <tr>
             <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
+              <div class=tooth_button id="0" onclick="clickTooth(0)">
+                <img class="dirty_tooth" id="t0" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_1.png" height="100" width="100"></img>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </div>
             </td>
             <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
+              <div class=tooth_button id="1" onclick="clickTooth(1)">
+                <img class="dirty_tooth" id="t1" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_2.png" height="100" width="100"></img>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </div>
             </td>
             <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
-                </svg>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
-                </svg>
-              </div>
-            </td>
-            <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
-                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
-                </svg>
-              </div>
-            </td>
-            <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
+              <div class=tooth_button id="2" onclick="clickTooth(2)">
+                <img class="dirty_tooth" id="t2" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_3.png" height="100" width="100"></img>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
@@ -112,21 +95,56 @@
           </tr>
           <tr>
             <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
+              <div class=tooth_button id="3" onclick="clickTooth(3)">
+                <img class="dirty_tooth" id="t3" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_4.png" height="100" width="100"></img>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </div>
             </td>
             <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
+              <div class=tooth_button id="4" onclick="clickTooth(4)">
+                <img class="dirty_tooth" id="t4" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_5.png" height="100" width="100"></img>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
               </div>
             </td>
             <td>
-              <div class=tooth_button onclick="game.pressButton(this)">
+              <div class=tooth_button id="5" onclick="clickTooth(5)">
+                <img class="dirty_tooth" id="t5" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_6.png" height="100" width="100"></img>
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class=tooth_button id="6" onclick="clickTooth(6)">
+                <img class="dirty_tooth" id="t6" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_7.png" height="100" width="100"></img>
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </div>
+            </td>
+            <td>
+              <div class=tooth_button id="7" onclick="clickTooth(7)">
+                <img class="dirty_tooth" id="t7" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_8.png" height="100" width="100"></img>
+                <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
+                  <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
+                </svg>
+              </div>
+            </td>
+            <td>
+              <div class=tooth_button id="8" onclick="clickTooth(8)">
+                <img class="dirty_tooth" id="t8" src="gross_tooth.png" height="100" width="100"></img>
+                <img class="shiny_tooth" src="shiny_tooth_9.png" height="100" width="100"></img>
                 <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
                   <circle cx="50" cy="50" r="50" align-items="center" fill="#6e1e64"/>
                 </svg>
