@@ -51,9 +51,20 @@ I wanted the website to be reminiscent of the inside of a mouth, as it is a game
 - Application text content -- consistent fonts.
 - Application images -- centered.
 
-### Application Images
-![css1](https://github.com/ajjget/startup/assets/112976867/b8cb8b83-3cb0-4642-b603-fc43f1971b83)
-![css2](https://github.com/ajjget/startup/assets/112976867/cc525436-9d14-482c-893e-3ef53197ddb1)
-![css3](https://github.com/ajjget/startup/assets/112976867/1cf51aee-43cd-4c93-b2c6-2da6ee39a58f)
-![css4](https://github.com/ajjget/startup/assets/112976867/86df6582-5c09-4a14-810f-60b1bd80d0a9)
+
+
+## JavaScript Deliverable
+
+### Overview
+
+I completely implemented the Whack-a-Plaque game logic in the JavaScript. Additionally, username and score data is stored in the page. When you navigate, you will still see your username at the top, and your score will be the same on the score page. Additionally, I added placeholders that mimic what API's and websockets will do.
+
+### Functionality
+
+   - The whack-a-plaque game logic was completely implemented and is entirely playable. Random teeth will pop up and add to your score when they are clicked. A wonderful end-game sequence shows up to signify a win. Play and reset buttons are fully functional.
+   - Username and score data is stored in the JS database, which will later be replaced.
+   - Username is stored and displayed right below "Whack-A-Plaque" on the top of the screen.
+   - Database data, like username and scores, are stored and injected into the DOM.
+   - Localstorage is used, so users can change pages and still have their data saved. You can see this with the username at the top, and the score on the scores page.
+   - The top of the page has changing mock API and WebSocket calls.
 
