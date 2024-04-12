@@ -33,7 +33,21 @@ async function delay() {
         }, 3000);
     });
 }
+  
+function displayFact(data) {
+fetch('https://webknox-trivia-knowledge-facts-v1.p.rapidapi.com/trivia/search')
+    .then((response) => response.json())
+    .then((data) => {
+    const containerEl = document.querySelector('#api_place');
 
+    let facts = data.trivia;
+    let fact = Math.floor(Math.random() * facts.length)
+
+    containerEl.textContent = fact
+    });
+}
+  
+displayFact();
 loadUsername();
 funFacts();
 websocketNotifications();
