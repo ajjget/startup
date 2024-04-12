@@ -10,14 +10,6 @@ function loadUsername() {
     }
 }
 
-async function funFacts() {
-    const apiEl = document.querySelector('#api_place');
-    for (i = 0; i < 15; i++) {
-        apiEl.textContent = `fun fact #${i}`;
-        await delay();
-    }
-}
-
 async function websocketNotifications() {
     const websocketEl = document.querySelector('#websocket_place');
     for (i = 0; i < 50; i+=5) {
@@ -34,20 +26,37 @@ async function delay() {
     });
 }
   
-function displayFact(data) {
-fetch('https://webknox-trivia-knowledge-facts-v1.p.rapidapi.com/trivia/search')
-    .then((response) => response.json())
-    .then((data) => {
-    const containerEl = document.querySelector('#api_place');
+function displayFact() {
+    const apiKey = '6e3ef13a0bmsh371c2c3d53ec18fp148385jsn1cce91e21da0';
+    const apiUrl = 'https://webknox-trivia-knowledge-facts-v1.p.rapidapi.com/trivia/search';
 
-    let facts = data.trivia;
-    let fact = Math.floor(Math.random() * facts.length)
+    fetch(apiUrl + '?topic=teeth', {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': apiKey,
+            'X-RapidAPI-Host': 'webknox-trivia-knowledge-facts-v1.p.rapidapi.com'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const containerEl = document.querySelector('#api_place');
+        const facts = data.trivia;
+        const factIndex = Math.floor(Math.random() * facts.length);
+        // console.log(facts.length)
+        // for (let i = 0; i < facts.length; i++) {
+        //     console.log(facts[i]);
+        // }
+        const randomFact = facts[factIndex];
 
-    containerEl.textContent = fact
+        containerEl.textContent = randomFact;
+        console.log(randomFact);
+    })
+    .catch(error => {
+        console.error('Error fetching trivia:', error);
     });
 }
+
   
 displayFact();
 loadUsername();
-funFacts();
 websocketNotifications();

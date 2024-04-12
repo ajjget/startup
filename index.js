@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 
 const app = express();
-const port = process.argv.length > 2 ? process.argv[2] : 3000;
+const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
 // Middleware for JSON Parsing
 app.use(express.json());
@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 // Router for service endpoints
 const triviaRouter = express.Router();
-app.use(`/trivia`, triviaRouter);
+app.use(`/trivia/search`, triviaRouter);
 
 // Define endpoint to fetch trivia
 triviaRouter.get('/search', async (req, res) => {
