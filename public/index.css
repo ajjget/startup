@@ -46,6 +46,7 @@ h1 {
   }
   
   .general_text {
+    justify-content: center;
     text-align: center;
     color: white;
   }

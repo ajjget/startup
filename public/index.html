@@ -40,14 +40,26 @@
     </header>
 
     <main>
-      <p class="title">Welcome to Whack-A-Plaque! Please login to play.</p>
-      <div class="general_text">
+      <div class="general_text" id="loginControls" style="display: block">
+        <p class="title">Welcome to Whack-A-Plaque! Please login to play.</p>
         <form method="get" action="play.html">
-          <label for="name">Name</label>
-          <input class="informational_links" type="text" id="name" placeholder="Your name here" />
+          <label for="userName">Username</label>
+          <input class="informational_links" type="text" id="userName" placeholder="Your name here" />
+        </form>
+        <form method="get" action="play.html">
+          <label for="userPassword">Password</label>
+          <input class="informational_links" type="text" id="userPassword" placeholder="Super secret password" />
+        </form>
           <button class="general_text" type="submit" onclick="login()">Login</button>
+          <button class="general_text" type="submit" onclick="register()">Register</button>
         </div>
-      </form>
+        <div class="general_text" id="error"></div>
+        <div class="general_text" id="playControls" style="display: none">
+          <div class=general_text id="login_username_place"></div>
+          <button type="submit" class="general_text" onclick="play()">Play</button>
+          <button type="submit" class="general_text" onclick="logout()">Logout</button>
+        </div>
+      </div>
     </main>
 
     <footer>

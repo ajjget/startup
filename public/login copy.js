@@ -1,7 +1,7 @@
 (async () => {
   const userName = localStorage.getItem('userName');
   if (userName) {
-    //document.querySelector('#username_place').textContent = `Logged in as ${userName}`;
+    document.querySelector('#playerName').textContent = userName;
     setDisplay('loginControls', 'none');
     setDisplay('playControls', 'block');
   } else {
@@ -10,22 +10,20 @@
   }
 })();
 
-async function login() {
+async function loginUser() {
   loginOrCreate(`/api/auth/login`);
 }
 
-async function register() {
+async function createUser() {
   loginOrCreate(`/api/auth/create`);
 }
 
 async function loginOrCreate(endpoint) {
-  const error = document.querySelector('#error');
-  error.textContent = "";
   const userName = document.querySelector('#userName')?.value;
   const password = document.querySelector('#userPassword')?.value;
   const response = await fetch(endpoint, {
     method: 'post',
-    body: JSON.stringify({ username: userName, password: password }),
+    body: JSON.stringify({ email: userName, password: password }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
@@ -36,7 +34,10 @@ async function loginOrCreate(endpoint) {
     window.location.href = 'play.html';
   } else {
     const body = await response.json();
-    error.textContent = `Error: ${body.msg}`;
+    const modalEl = document.querySelector('#msgModal');
+    modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
+    const msgModal = new bootstrap.Modal(modalEl, {});
+    msgModal.show();
   }
 }
 
@@ -51,10 +52,10 @@ function logout() {
   }).then(() => (window.location.href = '/'));
 }
 
-async function getUser(username) {
+async function getUser(email) {
   let scores = [];
-  // See if we have a user with the given username.
-  const response = await fetch(`/api/user/${username}`);
+  // See if we have a user with the given email.
+  const response = await fetch(`/api/user/${email}`);
   if (response.status === 200) {
     return response.json();
   }

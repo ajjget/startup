@@ -1,9 +1,13 @@
 function loadUsername() {
-    let username = localStorage.getItem('username');
+    let username = localStorage.getItem('userName');
     const usernameEl = document.querySelector('#username_place');
+    const loginUsernameEl = document.querySelector('#login_username_place');
 
     if (username) {
-        usernameEl.textContent = `${username} logged in`;
+        usernameEl.textContent = `Logged in as ${username}`;
+        if (loginUsernameEl) {
+            loginUsernameEl.textContent = username;
+        }
     }
     else {
         usernameEl.textContent = "Please login!";
