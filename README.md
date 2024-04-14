@@ -68,3 +68,27 @@ I completely implemented the Whack-a-Plaque game logic in the JavaScript. Additi
    - Localstorage is used, so users can change pages and still have their data saved. You can see this with the username at the top, and the score on the scores page.
    - The top of the page has changing mock API and WebSocket calls.
 
+
+## Services Deliverable
+
+### Overview
+The website now uses node.js. I added backend endpoints that updates scores and returns scores. I also added functionality to a fact generator API, which generates trivia about teeth.
+
+### Functionality
+   - Node.js/Express HTTP Service: Implemented
+   - Static middleware for frontend: Implemented
+   - Calls to third party endpoints: Implemented; see "Fun Fact" on "About" page
+   - Backend service endpoints: I did services and Login together, so all of the MongoDB stuff is fully implemented right now.
+   - Frontend calls service endpoints: Used fetch in login.js, play.js, and scores.js
+
+## DB/Login Deliverable
+
+### Overview
+All data is stored on MongoDB. User data is stored, even when a user logs out and leaves the page. Score data is updated.
+
+### Functionality
+   - Supports new user registration: New users can register if a username is not taken
+   - Supports existing user authentication: Returning users can log in with their password and access their pre-existing score data
+   - Stores application data in MongoDB: Implemented
+   - Stores and retrieves credentials in MongoDB: Implemented
+   - Restricts application functionality based upon authentication: "Play" and "Scores" pages are not accessible unless user is logged in
