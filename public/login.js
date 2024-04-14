@@ -36,7 +36,15 @@ async function loginOrCreate(endpoint) {
     window.location.href = 'play.html';
   } else {
     const body = await response.json();
-    error.textContent = `Error: ${body.msg}`;
+    if (response.status === 401) {
+      error.textContent = "Error: Incorrect login information";
+    }
+    else if (response.status === 409) {
+      error.textContent = "Error: Username already taken";
+    }
+    else {
+      error.textContent = `Error: ${body.msg}`;
+    }
   }
 }
 

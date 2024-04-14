@@ -24,7 +24,9 @@ function loadUsername() {
 async function websocketNotifications() {
     const websocketEl = document.querySelector('#websocket_place');
     for (i = 0; i < 50; i+=5) {
-        websocketEl.textContent = `${i} sets of teeth have been brushed by the community in the last 3 seconds!`;
+        const playerNum = Math.floor(Math.random() * 3000);
+        websocketEl.textContent = `Player ${playerNum} just brushed their teeth!`;
+        //websocketEl.textContent = `${i} sets of teeth have been brushed by the community in the last 3 seconds!`;
         await delay();
     }
 }
