@@ -46,15 +46,17 @@ async function addScore(username) {
   newScore++;
   console.log(`new after update: ${newScore}`);
 
-  const update = { 
-    username: username,
-    score: newScore
-  };
-  try {
-    await scoreCollection.insertOne(update);
+  if (newScore == 1) {
+    await scoreCollection.insertOne({ 
+      username: username,
+      score: newScore
+  });
   }
-  catch (error) {
-    console.error("error inserting score", error);
+  else {
+    await scoreCollection.updateOne(
+      {username: username},
+      {$set: {score: newScore}}
+    );
   }
 
   return newScore;
