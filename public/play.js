@@ -25,7 +25,7 @@ function clickPlay() {
 }
 
 async function whackAPlaque() {
-    while (score < 20 && gameInProgress == true) {
+    while (score < 2 && gameInProgress == true) {
         toothID = await getRandomNumber();
         teethPoppedUp[toothID] = 1;
         paintTooth(toothID);
@@ -35,7 +35,7 @@ async function whackAPlaque() {
         teethPoppedUp[toothID] = 0;
         paintTooth(toothID);
     }
-    if (score >= 20) {
+    if (score >= 2) {
         finishGame();
     }
 }
@@ -78,17 +78,38 @@ function updateScore(scoreMessage) {
     scoreEl.value = scoreMessage;
 }
 
-function saveScore() {
-  //const userName = this.getPlayerName();
-  let scores = localStorage.getItem('scores');
-  if (scores) {
-    scores++;
-  }
-  else {
-    scores = 1;
-  }
+async function saveScore() {
+  // const username = localStorage.getItem('userName');
+  // const response = await fetch('/api/score', {
+  //   method: 'POST',
+  //   headers: {
+  //       'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({ username: username })
+  // });
+  // await response.text();
 
-  localStorage.setItem('scores', JSON.stringify(scores));
+  const username = localStorage.getItem('userName');
+  const url =  `/api/score?username=${encodeURIComponent(username)}`;
+  //console.log(url);
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+  });
+  let scoreText = parseInt(await response.text());
+
+  //const userName = this.getPlayerName();
+  //let scores = localStorage.getItem('scores');
+  // if (scores) {
+  //   scores++;
+  // }
+  // else {
+  //   scores = 1;
+  // }
+
+  // localStorage.setItem('scores', JSON.stringify(scores));
 }
 
 async function delay() {

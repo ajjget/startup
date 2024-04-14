@@ -86,17 +86,27 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 // GetScores
-secureApiRouter.get('/scores', async (req, res) => {
-  const scores = await DB.getHighScores();
-  res.send(scores);
+secureApiRouter.get('/score', async (req, res) => {
+  const username = req.query.username;
+  if (!username) {
+    return res.status(400).send("Username is required");
+  }
+
+  try {
+    console.log(`get: ${username}`)
+    const score = await DB.getScore(username);
+    res.send(score.toString());
+  }
+  catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // SubmitScore
 secureApiRouter.post('/score', async (req, res) => {
-  const score = { ...req.body, ip: req.ip };
-  await DB.addScore(score);
-  const scores = await DB.getHighScores();
-  res.send(scores);
+  const username = req.query.username;
+  const newScore = await DB.addScore(username);
+  res.send(newScore.toString());
 });
 
 // Default error handler
