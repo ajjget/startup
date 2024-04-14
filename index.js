@@ -11,33 +11,21 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Router for service endpoints
-const triviaRouter = express.Router();
-app.use(`/trivia/search`, triviaRouter);
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
 
-// Define endpoint to fetch trivia
-triviaRouter.get('/search', async (req, res) => {
-  const { topic } = req.query;
-
-  const options = {
-    method: 'GET',
-    url: 'https://webknox-trivia-knowledge-facts-v1.p.rapidapi.com/trivia/search',
-    params: { topic: 'teeth' },
-    headers: {
-      'X-RapidAPI-Key': '6e3ef13a0bmsh371c2c3d53ec18fp148385jsn1cce91e21da0',
-      'X-RapidAPI-Host': 'webknox-trivia-knowledge-facts-v1.p.rapidapi.com'
-    }
-  };
-
-  try {
-    const response = await axios.request(options);
-    res.send(response.data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Internal Server Error');
-  }
+// GetScores
+apiRouter.get('/scores', (_req, res) => {
+  res.send(scores);
 });
 
-// Default route
+// SubmitScore
+apiRouter.post('/score', (req, res) => {
+  scores = updateScores(req.body, scores);
+  res.send(scores);
+});
+
+// Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
@@ -45,3 +33,27 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+// updateScores considers a new score for inclusion in the high scores.
+// The high scores are saved in memory and disappear whenever the service is restarted.
+//localStorage.setItem('scores', JSON.stringify(scores))
+function updateScores(newScore, scores) {
+  let found = false;
+  for (const [i, prevScore] of scores.entries()) {
+    if (newScore.score > prevScore.score) {
+      scores.splice(i, 0, newScore);
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
+    scores.push(newScore);
+  }
+
+  if (scores.length > 10) {
+    scores.length = 10;
+  }
+
+  return scores;
+}
