@@ -25,7 +25,7 @@ function clickPlay() {
 }
 
 async function whackAPlaque() {
-    while (score < 2 && gameInProgress == true) {
+    while (score < 20 && gameInProgress == true) {
         toothID = await getRandomNumber();
         teethPoppedUp[toothID] = 1;
         paintTooth(toothID);
@@ -35,7 +35,7 @@ async function whackAPlaque() {
         teethPoppedUp[toothID] = 0;
         paintTooth(toothID);
     }
-    if (score >= 2) {
+    if (score >= 20) {
         finishGame();
     }
 }
