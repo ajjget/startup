@@ -29,9 +29,9 @@
         <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
         <menu>
           <li><a class=page-options href="index.html">Home</a></li>
-          <li><a class=page-options href="play.html">Play</a></li>
-          <li><a class=page-options href="scores.html">Scores</a></li>
           <li><a class=page-options href="about.html">About</a></li>
+          <li><a class=page-options id="playButton" href="play.html" style="display: none">Play</a></li>
+          <li><a class=page-options id="scoresButton" href="scores.html" style="display: none">Scores</a></li>
         </menu>
       </nav>
 
@@ -41,7 +41,7 @@
 
     <main>
       <div class="general_text" id="loginControls" style="display: block">
-        <p class="title">Welcome to Whack-A-Plaque! Please login to play.</p>
+        <p class="title">Welcome to Whack-A-Plaque! You must login before playing or viewing scores.</p>
         <form method="get" action="play.html">
           <label for="userName">Username</label>
           <input class="informational_links" type="text" id="userName" placeholder="Your name here" />

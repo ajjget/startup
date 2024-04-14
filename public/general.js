@@ -5,12 +5,19 @@ function loadUsername() {
 
     if (username) {
         usernameEl.textContent = `Logged in as ${username}`;
+        setDisplay('playButton', 'block');
+        setDisplay('scoresButton', 'block');
         if (loginUsernameEl) {
             loginUsernameEl.textContent = username;
         }
     }
     else {
         usernameEl.textContent = "Please login!";
+        if (!document.URL.includes("index.html") && !document.URL.includes("about.html")) {
+            window.location.href = 'index.html';
+        }
+        setDisplay('playButton', 'none');
+        setDisplay('scoresButton', 'none');
     }
 }
 
@@ -21,6 +28,13 @@ async function websocketNotifications() {
         await delay();
     }
 }
+
+function setDisplay(controlId, display) {
+    const playControlEl = document.querySelector(`#${controlId}`);
+    if (playControlEl) {
+      playControlEl.style.display = display;
+    }
+  }
 
 async function delay() {
     return new Promise((resolve) => {

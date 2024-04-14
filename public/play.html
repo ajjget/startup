@@ -25,9 +25,9 @@
         <!-- Menu is a semantic alternative to <ul> that represents an interaction -->
         <menu>
           <li><a class=page-options href="index.html">Home</a></li>
+          <li><a class=page-options  href="about.html">About</a></li>
           <li><a class=page-options  href="play.html">Play</a></li>
           <li><a class=page-options  href="scores.html">Scores</a></li>
-          <li><a class=page-options  href="about.html">About</a></li>
         </menu>
       </nav>
 
@@ -36,6 +36,10 @@
     </header>
 
     <main>
+      <div class="not_logged_in" style="display: none">
+        <p class="general_text">Please log in to play.</p>
+      </div>
+      <div class="logged_in" style="display: block">
       <div>
         <p class=purple_text>These teeth are covered in plaque and need to be brushed! Press the "Start" button to play.
         Click on the teeth to brush them when they pop up. <br><br>Kids typically have 20 teeth. 
@@ -152,6 +156,7 @@
           </tr>
         </table>
       </div>
+    </div>
     </main>
 
     <footer>
