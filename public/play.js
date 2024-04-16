@@ -3,7 +3,7 @@ let teethPoppedUp = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let score = 0;
 let gameInProgress = false;
 const playProtocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-let socket = new WebSocket(`${playProtocol}://${window.location.host}/ws`);
+let playSocket = new WebSocket(`${playProtocol}://${window.location.host}/ws`);
 
 function clickTooth(toothID) {
     if (teethPoppedUp[toothID] == 1) {
@@ -107,9 +107,10 @@ function finishGame() {
     broadcastEvent(localStorage.getItem('userName'));
 }
 
+
 function broadcastEvent(player) {
   const event = {
     player: player
   };
-  socket.send(JSON.stringify(event));
+  playSocket.send(JSON.stringify(event));
 }
