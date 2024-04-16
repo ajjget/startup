@@ -29,14 +29,22 @@ function loadUsername() {
 // set up websocket to accept different events
 function configureWebSocket() {
     socket.onopen = (event) => {
-      this.displayMsg("Winners will have their name displayed here!");
+      lastWinner = localStorage.getItem('socketNotification');
+      if (lastWinner == null) {
+        this.displayMsg("Winners will have their name displayed here!");
+      }
+      else {
+        this.displayMsg(lastWinner);
+      }
     };
     socket.onclose = (event) => {
       this.displayMsg("Socket closed.");
     };
     socket.onmessage = async (event) => {
-      const newMessage = JSON.parse(await event.data.text());
-      displayMsg(`${newMessage.player} has just brushed their teeth!`);
+      const eventContent = JSON.parse(await event.data.text());
+      let newMessage = `${eventContent.player} has just brushed their teeth!`
+      displayMsg(newMessage);
+      localStorage.setItem('socketNotification', newMessage);
     };
   }
 
