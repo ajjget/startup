@@ -1,8 +1,7 @@
+// loads scores from database and displays them on the page
 async function loadScores() {
-  //const scoreText = localStorage.getItem('scores');
   const username = localStorage.getItem('userName');
   const url =  `/api/score?username=${encodeURIComponent(username)}`;
-  //console.log(url);
   const response = await fetch(url, {
     method: 'GET',
     headers: {
