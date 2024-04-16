@@ -1,7 +1,8 @@
 const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-let socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+let socket = new WebSocket(`${protocol}://${window.location.host}/ws`); // initialize websocket. used also on play.js
 configureWebSocket();
 
+// load username based on whether or not a user is logged in
 function loadUsername() {
     let username = localStorage.getItem('userName');
     const usernameEl = document.querySelector('#username_place');
@@ -25,6 +26,7 @@ function loadUsername() {
     }
 }
 
+// set up websocket to accept different events
 function configureWebSocket() {
     socket.onopen = (event) => {
       this.displayMsg("Winners will have their name displayed here!");
@@ -37,25 +39,19 @@ function configureWebSocket() {
       displayMsg(`${newMessage.player} has just brushed their teeth!`);
     };
   }
-  
-  function displayMsg(msg) {
+
+// display message on the websocket spot at the top of the page
+function displayMsg(msg) {
     const websocketPlace = document.querySelector('#websocket_place');
     websocketPlace.textContent = msg;
   }
 
+// general helper function to help update displays
 function setDisplay(controlId, display) {
     const playControlEl = document.querySelector(`#${controlId}`);
     if (playControlEl) {
       playControlEl.style.display = display;
     }
   }
-
-async function delay() {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve(true);
-        }, 3000);
-    });
-}
   
 loadUsername();
