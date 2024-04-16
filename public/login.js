@@ -1,3 +1,4 @@
+// shows login/register controls if there is no username in localstorage; otherwise, shows play/logout
 (async () => {
   const userName = localStorage.getItem('userName');
   if (userName) {
@@ -9,15 +10,20 @@
   }
 })();
 
+// making a request to authenticate a login
 async function login() {
-  loginOrCreate(`/api/auth/login`);
+  loginOrRegister(`/api/auth/login`);
 }
 
+// making a request to register an account
 async function register() {
-  loginOrCreate(`/api/auth/create`);
+  loginOrRegister(`/api/auth/create`);
 }
 
-async function loginOrCreate(endpoint) {
+// handles login/registering with the API
+// sends the API user data
+// processes response accordingly 
+async function loginOrRegister(endpoint) {
   const error = document.querySelector('#error');
   error.textContent = "";
   const userName = document.querySelector('#userName')?.value;
@@ -47,10 +53,12 @@ async function loginOrCreate(endpoint) {
   }
 }
 
+// redirects the play button to the play page
 function play() {
   window.location.href = 'play.html';
 }
 
+// handles logout button press with API, removes username from localStorage
 function logout() {
   localStorage.removeItem('userName');
   fetch(`/api/auth/logout`, {
@@ -58,9 +66,9 @@ function logout() {
   }).then(() => (window.location.href = '/'));
 }
 
+// determiens if there is a user with a given username
 async function getUser(username) {
   let scores = [];
-  // See if we have a user with the given username.
   const response = await fetch(`/api/user/${username}`);
   if (response.status === 200) {
     return response.json();
@@ -69,6 +77,7 @@ async function getUser(username) {
   return null;
 }
 
+// generally set a display of some item in the document
 function setDisplay(controlId, display) {
   const playControlEl = document.querySelector(`#${controlId}`);
   if (playControlEl) {
