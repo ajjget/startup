@@ -2,10 +2,8 @@ let buttons = document.getElementsByClassName("tooth_button");
 let teethPoppedUp = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 let score = 0;
 let gameInProgress = false;
-
-function loadUsername() {
-  
-}
+const playProtocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+let socket = new WebSocket(`${playProtocol}://${window.location.host}/ws`);
 
 function clickTooth(toothID) {
     if (teethPoppedUp[toothID] == 1) {
@@ -79,16 +77,6 @@ function updateScore(scoreMessage) {
 }
 
 async function saveScore() {
-  // const username = localStorage.getItem('userName');
-  // const response = await fetch('/api/score', {
-  //   method: 'POST',
-  //   headers: {
-  //       'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify({ username: username })
-  // });
-  // await response.text();
-
   const username = localStorage.getItem('userName');
   const url =  `/api/score?username=${encodeURIComponent(username)}`;
   //console.log(url);
@@ -99,17 +87,6 @@ async function saveScore() {
     }
   });
   let scoreText = parseInt(await response.text());
-
-  //const userName = this.getPlayerName();
-  //let scores = localStorage.getItem('scores');
-  // if (scores) {
-  //   scores++;
-  // }
-  // else {
-  //   scores = 1;
-  // }
-
-  // localStorage.setItem('scores', JSON.stringify(scores));
 }
 
 async function delay() {
@@ -127,55 +104,12 @@ function finishGame() {
     for (i = 0; i < shinyTeeth.length; i++) {
       shinyTeeth[i].style.display="block";
     }
+    broadcastEvent(localStorage.getItem('userName'));
 }
 
-
-
-/*
-  set up buttons
-  
-  While (score < 32) {
-    randomly choose a state to update
-    paint_holes() -> goes through array and puts tooth on hole, takes teeth from 0 holes
-    delay()
-    array = 0
-  }
-
-  onClick() {
-    if (array[i] == 1)
-      score++
-      array[0] = 0
-      paint_holes()
-  }
-
-  */
-  
-  /*
-  TA ADVICE
-  <div>
-    <div class="button" id="bt1" onclick="getButton(0)"\>
-    <div class="button" id="bt2" onclick="getButton(1)"\>
-    <div class="button" id="bt3" onclick="getButton(2)"\>
-  </div>
-
-  js
-
-  let buttons = document.getElementsByClassName("button")
-  // buttons = [bt1, bt2, bt3]
-
-  function getButton (num) {
-    let button = document.getElementById(`bt${num}`);
-  }
-  */
-
-  /*
-  Insert photo
-  - you can do CSS manipulation to hide and show photo
-  class.display: none
-  class.display: block
-  */
-
-  /*
-  Interrupt function while while() is in delay
-  lolz don't need to cuz im not fancy and this game gonn suck
-  */
+function broadcastEvent(player) {
+  const event = {
+    player: player
+  };
+  socket.send(JSON.stringify(event));
+}
