@@ -1,3 +1,4 @@
+// gets a fun fact from the API and displays it on the about page
 function displayFact() {
     const apiKey = '6e3ef13a0bmsh371c2c3d53ec18fp148385jsn1cce91e21da0';
     const apiUrl = 'https://webknox-trivia-knowledge-facts-v1.p.rapidapi.com/trivia/search';
