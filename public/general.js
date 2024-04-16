@@ -1,5 +1,5 @@
 const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-let genSocket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+let socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 configureWebSocket();
 
 function loadUsername() {
@@ -36,13 +36,13 @@ function loadUsername() {
 // }
 
 function configureWebSocket() {
-    genSocket.onopen = (event) => {
+    socket.onopen = (event) => {
       this.displayMsg("Winners will have their name displayed here!");
     };
-    genSocket.onclose = (event) => {
+    socket.onclose = (event) => {
       this.displayMsg("Socket closed.");
     };
-    genSocket.onmessage = async (event) => {
+    socket.onmessage = async (event) => {
       const newMessage = JSON.parse(await event.data.text());
       displayMsg(`${newMessage.player} has just brushed their teeth!`);
     };
