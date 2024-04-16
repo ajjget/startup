@@ -14,10 +14,6 @@ function displayFact() {
         const containerEl = document.querySelector('#api_place');
         const facts = data.trivia;
         const factIndex = Math.floor(Math.random() * facts.length);
-        // console.log(facts.length)
-        // for (let i = 0; i < facts.length; i++) {
-        //     console.log(facts[i]);
-        // }
         const randomFact = facts[factIndex];
 
         containerEl.textContent = randomFact;

@@ -1,7 +1,6 @@
 (async () => {
   const userName = localStorage.getItem('userName');
   if (userName) {
-    //document.querySelector('#username_place').textContent = `Logged in as ${userName}`;
     setDisplay('loginControls', 'none');
     setDisplay('playControls', 'block');
   } else {

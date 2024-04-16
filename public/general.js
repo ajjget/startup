@@ -25,16 +25,6 @@ function loadUsername() {
     }
 }
 
-// async function websocketNotifications() {
-//     const websocketEl = document.querySelector('#websocket_place');
-//     for (i = 0; i < 50; i+=5) {
-//         const playerNum = Math.floor(Math.random() * 3000);
-//         websocketEl.textContent = `Player ${playerNum} just brushed their teeth!`;
-//         //websocketEl.textContent = `${i} sets of teeth have been brushed by the community in the last 3 seconds!`;
-//         await delay();
-//     }
-// }
-
 function configureWebSocket() {
     socket.onopen = (event) => {
       this.displayMsg("Winners will have their name displayed here!");
@@ -69,4 +59,3 @@ async function delay() {
 }
   
 loadUsername();
-//websocketNotifications();
