@@ -24,8 +24,8 @@ export function Authenticated(props) {
   return (
     <div class="general_text" id="playControls">
       <div className="general_text" id="login_username_place">{props.userName}</div>
-      <Button className="general_text" onclick={() => navigate('/play')}>Play</Button>
-      <Button className="general_text" onclick={() => logout()}>Logout</Button>
+      <Button className="general_text" onClick={() => navigate('/play')}>Play</Button>
+      <Button className="general_text" onClick={() => logout()}>Logout</Button>
     </div>
   );
 }

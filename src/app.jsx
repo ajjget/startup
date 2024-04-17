@@ -12,14 +12,19 @@ function App() {
   const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = React.useState('');
 
-  useEffect(() => {
+  React.useEffect(() => {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     const socket = new WebSocket(`${protocol}://${window.location.host}/ws`); // initialize websocket. used also on play.js
       socket.onopen = (event) => {
         lastWinner = localStorage.getItem('socketNotification');
-        setMessage(lastWinner || "Winners will have their name displayed here!");
+        if (lastWinner != null) {
+          setMessage(lastWinner);
+        }
+        else {
+          setMessage("Winners will have their name displayed here!");
+        }
       };
       socket.onclose = (event) => {
         setMessage("Socket closed.");
@@ -41,8 +46,6 @@ function App() {
 
   // display message on the websocket spot at the top of the page
 
-    
-  loadUsername();
 
   return (
     <BrowserRouter>
@@ -54,7 +57,7 @@ function App() {
           <nav>
             <menu>
             <li>
-                <NavLink className='page-options' to='index'>
+                <NavLink className='page-options' to=''>
                   Login
                 </NavLink>
               </li>
@@ -96,10 +99,9 @@ function App() {
             }
             exact
           />
-          <Route path='/play' element={<Play userName={userName} />} />
+          <Route path='/play' element={<Play />} />
           <Route path='/scores' element={<Scores />} />
           <Route path='/about' element={<About />} />
-          <Route path='/index' element={<Index />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
 

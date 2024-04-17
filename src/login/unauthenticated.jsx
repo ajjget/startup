@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Button from 'react-bootstrap/Button';
-import {MessageDialog} from './messageDialog';
+//import {MessageDialog} from './messageDialog';
 
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
   const [password, setPassword] = React.useState('');
-  const [displayError, setDisplayError] = React.useState(null);
+  //const [displayError, setDisplayError] = React.useState(null);
+  const [error, setError] = React.useState('');
 
   async function loginUser() {
     loginOrCreate(`/api/auth/login`);
@@ -32,13 +33,13 @@ export function Unauthenticated(props) {
     } else {
       const body = await response.json();
       if (response.status === 401) {
-        error.textContent = "Error: Incorrect login information";
+        setError("Error: Incorrect login information");
       }
       else if (response.status === 409) {
-        error.textContent = "Error: Username already taken";
+        setError("Error: Username already taken");
       }
       else {
-        error.textContent = `Error: ${body.msg}`;
+        setError(`Error: ${body.msg}`);
       }
     }
   }
@@ -73,10 +74,9 @@ export function Unauthenticated(props) {
         <Button className="general_text" onClick={() => createUser()}>
           Register
         </Button>
-        <div className="general_text" id="error"></div>
+        <div className="general_text" id="error">{error}</div>
       </div>
 
-      <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
     </>
   );
 }
