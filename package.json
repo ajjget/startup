@@ -10,5 +10,12 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "react-bootstrap": "^2.10.2"
-  }
+  },
+  "name": "startup",
+  "description": "Whack-A-Mole is a classic game that has entertained children for generations. Dentists and parents alike want to teach children to brush their teeth daily so they can have good dental hygiene.",
+  "version": "1.0.0",
+  "main": "vite.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
