@@ -92,3 +92,15 @@ All data is stored on MongoDB. User data is stored, even when a user logs out an
    - Stores application data in MongoDB: Implemented
    - Stores and retrieves credentials in MongoDB: Implemented
    - Restricts application functionality based upon authentication: "Play" and "Scores" pages are not accessible unless user is logged in
+
+
+## WebSocket Deliverable
+
+### Overview
+The WebSocket displays when some new user has brushed their teeth (AKA won a game).
+
+### Functionality
+   - Backend listens for WebSocket connection: Implemented (see in index.js and peerProxy.js)
+   - Frontend makes WebSocket connection: Implemented (see in general.js)
+   - Data send over WebSocket connection: The username of a winning player is sent in play.js, processed in peerProxy.js, and received in general.js
+   - WebSocket data displayed in the application interface: See the top of the page, under either "Please log in" or "Logged in as {username}". The element underneath will immediately be updated via Websocket with the last player who won a game.
