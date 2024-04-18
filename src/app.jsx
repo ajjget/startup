@@ -18,7 +18,7 @@ function App() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     const socket = new WebSocket(`${protocol}://${window.location.host}/ws`); // initialize websocket. used also on play.js
       socket.onopen = (event) => {
-        lastWinner = localStorage.getItem('socketNotification');
+        let lastWinner = localStorage.getItem('socketNotification');
         if (lastWinner != null) {
           setMessage(lastWinner);
         }
@@ -107,7 +107,7 @@ function App() {
 
         <footer>
           <div>
-            <span className='name'>Andrea Gettys</span>
+            <div className='name'>Andrea Gettys</div>
             <a className='text-reset' href='https://github.com/ajjget/startup'>
               GitHub
             </a>
