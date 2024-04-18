@@ -99,6 +99,8 @@ h1 {
   }
   
   * {
+    justify-content: center;
+    text-align: center;
     background-color: #a965ab;
     font-family: "Lucida Console", "Courier New", monospace;
   }

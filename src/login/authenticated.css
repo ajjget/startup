@@ -56,6 +56,11 @@ h1 {
     justify-content: center;
     text-align: center;
     color: white;
+    border: none;
+  }
+
+  .container-fluid.bg-secondary.text-center {
+    background-color: #a965ab;
   }
   
   .title {

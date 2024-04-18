@@ -49,6 +49,7 @@ h1 {
     justify-content: center;
     text-align: center;
     color: white;
+    border: none;
   }
   
   .title {
@@ -79,6 +80,11 @@ h1 {
   footer {
     padding-block: 20px;
     text-align: center;
+  }
+
+  .bottom-of-header {
+    padding-block: 2px;
+    background-color: #834785
   }
   
   * {

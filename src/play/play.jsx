@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
+import './play.css'
 
 export function Play(props) {
   const [teethPoppedUp, setTeethPoppedUp] = useState(Array(9).fill(0));
@@ -130,12 +131,9 @@ function broadcastEvent(player) {
 
   return (
     <main>
-      <div style={{ display: 'none' }}>
-        <p>Please log in to play.</p>
-      </div>
       <div>
         <div>
-          <p>These teeth are covered in plaque and need to be brushed! Press the "Start" button to play. Click on the teeth to brush them when they pop up.<br /><br />Kids typically have 20 teeth. Once all 20 teeth are brushed, the game is over and you win the joyous and rewarding prize of clean teeth!</p>
+          <p className="general_text">These teeth are covered in plaque and need to be brushed! Press the "Start" button to play. Click on the teeth to brush them when they pop up.<br /><br />Kids typically have 20 teeth. Once all 20 teeth are brushed, the game is over and you win the joyous and rewarding prize of clean teeth!</p>
         </div>
         <br />
         <div>
@@ -144,10 +142,8 @@ function broadcastEvent(player) {
         </div>
         <br />
         <div>
-          <Button onClick={handlePlay}>Start</Button>
-        </div>
-        <div>
-          <Button onClick={clickReset}>Reset</Button>
+          <button className="button-class" onClick={handlePlay}>Start</button>
+          <button className="button-class" onClick={clickReset}>Reset</button>
         </div>
         <br />
         <div>

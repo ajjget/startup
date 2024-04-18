@@ -82,6 +82,7 @@ function App() {
               )}
             </menu>
           </nav>
+          <div className="bottom-of-header"></div>
         </header>
 
         <Routes>
