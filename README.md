@@ -104,3 +104,16 @@ The WebSocket displays when some new user has brushed their teeth (AKA won a gam
    - Frontend makes WebSocket connection: Implemented (see in general.js)
    - Data send over WebSocket connection: The username of a winning player is sent in play.js, processed in peerProxy.js, and received in general.js
    - WebSocket data displayed in the application interface: See the top of the page, under either "Please log in" or "Logged in as {username}". The element underneath will immediately be updated via Websocket with the last player who won a game.
+
+
+## React Deliverable
+
+### Overview
+Whack-A-Plaque is NOT as beautiful as it was before the React update, BUT it does entirely function while using (nearly) entirely jsx files and a React framework: Gameplay, WebSockets, MongoDB, and all.
+
+### Functionality
+   - Bundled using Vite: Implemented
+   - Multiple functional react components: Everything is functional that was functional on the previous website
+   - React router: Used in app.jsx to route the entire page
+   - React hooks: Used nearly everywhere, especially in play.jsx. useState, useEffect, and useRef are used all throughout the website.
+
