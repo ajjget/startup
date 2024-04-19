@@ -21,6 +21,8 @@ Linux daemon (background process)
   - starts when the computer is rebooted
   - PM2 is an example of a daemon
   - able to fork other processes
+chat's description of daemon:
+A Linux daemon is a background process that runs independently of user interaction, typically initiated at system startup. These programs perform various tasks and services essential for the operating system's functionality and for applications running on the system. Daemons operate silently, without a user interface, continuously performing their designated functions throughout the uptime of the system.
 
 ## GitHub assignment
 GitHub is a tool for storing code. 
