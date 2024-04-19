@@ -1,5 +1,28 @@
-#Welcome to Notes!
-##GitHub assignment
+# Welcome to Notes!
+
+## Exam review 2
+
+Port 80: http
+300 errors: content redirect
+400 errors: client side error
+500 errors: server side error
+Standard HTTP headers: Content-type, host, cookie (NOT language)
+Cookies allow a server to store data on the client
+Requests: first, app.use is ALWAYS hit -> use appropriate function that matches the request method. for all of these steps, continue on if "next()" is used, otherwise stop.
+REGEX: { $or: [{name:/J.*/}, {score: {$lt:3}}] } means find all and any records thats name starts with capital J OR find a record whose score is less than 3
+WebSocket: HTTP is client-server dynamic. WebSocket is peer and peer.
+NPM install ws:
+  - locks the version of the websocket package for your application
+  - adds the websocket source code to the node_modules directory
+  - adds a dependency to your package.json file
+fetch can be used in front-end and back-end code
+Linux daemon
+  - executes independently of a user
+  - starts when the computer is rebooted
+  - PM2 is an example of a daemon
+  - able to fork other processes
+
+## GitHub assignment
 GitHub is a tool for storing code. 
 To update changes:
 git add <name of file> or simply . if you want to add all changes
@@ -14,7 +37,7 @@ reconcile the merge
 git commit
 ta-da!
   
-##HTML
+## HTML
 <p id="myID" class="myClass"> to set ID of an element
 
 use <ul> or <ol> to make unordered or ordered list, every list element has <li> before it
